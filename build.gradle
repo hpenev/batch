@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-integration'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.1.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.5.RELEASE'
+    compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.3.Final'
+    compile group: 'org.springframework.batch', name: 'spring-batch-core', version: '4.1.2.RELEASE'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+bootRun {
+    jvmArgs = ["-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005", "-Xmx1g"]
+}
