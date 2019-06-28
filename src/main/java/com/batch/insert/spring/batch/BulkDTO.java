@@ -1,4 +1,4 @@
-package com.example.demo.spring.batch;
+package com.batch.insert.spring.batch;
 
 public class BulkDTO {
 
